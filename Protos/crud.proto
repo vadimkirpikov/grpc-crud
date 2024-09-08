@@ -1,0 +1,47 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "CrudAppGrpcOptions";
+
+package crud;
+
+service CrudOptions {
+  rpc CreateTask(CreateTaskRequest) returns (Status);
+  rpc ReadTasks(ListTaskRequest) returns (ListTaskResponse);
+  rpc UpdateTask(UpdateTaskRequest) returns (Status);
+  rpc DeleteTask(DeleteTaskRequest) returns (DeleteTaskResponse);
+}
+message CreateTaskRequest {
+  string title = 1;
+  string text = 2;
+  bool isCompleted = 3;
+}
+
+message GetTaskRequest {
+  int32 id = 1;
+}
+message UpdateTaskRequest {
+  int32 id = 1;
+  string title = 2;
+  string text = 3;
+  bool isCompleted = 4;
+}
+
+message Task {
+  int32 id = 1;
+  string title = 2;
+  string text = 3;
+  bool isCompleted = 4;
+}
+message DeleteTaskRequest {
+  int32 id = 1;
+}
+message DeleteTaskResponse {
+  bool success = 1;
+}
+message ListTaskRequest {}
+message ListTaskResponse {
+  repeated Task tasks = 1;
+}
+message Status {
+  bool success = 1;
+}

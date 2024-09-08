@@ -1,0 +1,21 @@
+# This is a generated file. Not intended for manual editing.
+services:
+  crud-app-grpc:
+    build:
+      context: "C:\\Users\\Vadim\\RiderProjects\\CrudAppGrpc"
+      dockerfile: "Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net8.0/CrudAppGrpc.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "crud-app-grpc:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\Vadim\\.nuget\\packages:/home/app/.nuget/packages"
+    - "C:\\Users\\Vadim\\RiderProjects\\CrudAppGrpc:/app:rw"
+    - "C:\\Users\\Vadim\\RiderProjects\\CrudAppGrpc:/src:rw"
+    working_dir: "/app"
